@@ -1,0 +1,84 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace ProjectPerunDesktop.Forms
+{
+    public partial class FrmProduction : Form
+    {
+        public FrmProduction()
+        {
+            InitializeComponent();
+        }
+
+        private void btnFetchShiftData_Click(object sender, EventArgs e)
+        {
+            //DOHVACAMO PODATKE O NARUDŽBI KOJE NE UNOSIMO SAMI
+            //UNOSIMO SAMO BROJ NARUDŽBE KOJI JE ZAPRAVO ID NARUDŽBE, TJ ODABIREMO GA IZ POPISA NARUDŽBI
+            //U POPISU SE NALAZE SAMO ONE NARUDŽBE KOJE SU OTVORENE
+            //ODABIREMO SAMO DEPARTMENT KOJI JE ZAPRAVO STROJNO PROIZVOĐENJE I DORADA
+            //KADA TO IMAMO ZAPOCINJEMO SMJENU
+        }
+
+        private void btnStartShift_Click(object sender, EventArgs e)
+        {
+            //KLIKOM NA ZAPOCNI SMJENU VISE NE MOZEMO MIJENJATI PODATKE OS MJENI
+            //MORAMO IMATI POVUCENU NARUDZBU I TIP PROIZVODNJE, STROJNO ILI DORADA
+            //SPREMA SE SMJENA U BAZU PODATAKA I VRACA SE ID SMJENE
+            //U PRVU KUCICU ZAPISUJEMO ID SMJENE I SVA POLJA OZNACAVAMO KAO POLJA KOJA NE MOZEMO MIJENJATI
+            //BOTUNI TAKOĐER POSTAJU UNCLICKABLE
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            //OVIM BOTUNON MICEMO MATERIJAL IZ LISTE KADA SE POTROSI
+            //IMAT PROVJERU AKO GA RUCNO UPISEMO DA MORA BIT U LISTI
+            //MOZEMO DOUBLE KLIK NA LISTU I UPISAT CE SE BROJ MATERIJALA I KOD
+            //NE MORAMO IMATI KOD DA BI BRISALI MATERIJAL IZ LISTE SAMO BROJ MATERIJALA
+            //ON SE BRISE IZ LISTE I U TABLICI MATERIJAL NARUDŽBA; VIDIT DA LI CU ODMA MICAT I IZ SKLADISTA ILI NAKNADNO
+            //MOZDA BI SE MOGA NAPRAVIT NEKAKAV POZIV PRI ZAKLJUCENJU SMJENE I ODRADITI DELETE MATERIJALA IZ SKLADISTA
+            //ONOGA KOJI SE POBRISA U SMJENI IZ TABLICE, MOZDA DODATI RETURN? AKO SLUCAJNO MAKNEMO KRIVI MATERIJAL
+            //U RETURNU BI PROVJERILI DA LI JE U TABLICI I ONDA BI SAMO PROMINILI FLAG; STOGA AKO CEMO TAKO ONDA BRISEN NAKNAD.
+        }
+
+        private void btnAddWorker_Click(object sender, EventArgs e)
+        {
+            //DODAVANJE RADNIKA U SMJENU
+            //OTVARA SE FORMA S POPISOM RADNIKA I BIRAMO RADNIKA KOJEG DODAJEMO
+            //NJEGOVI PODATCI SE ZAPISUJU U TABLICU SHIFT_WORKER
+            //VRACA SE IZ TE FORME U PRIJASNJU FORMU TE SE TU ZAPISUJE RADNIK U DS KOJI SE PRIKAZUJE U FORMI
+            //U DS SE NALAZE SVI RADNICI KOJI SU NA SMJENI TRENUTNO
+            FrmAddWorkerOnShift frmAddWorkerOnShift = new FrmAddWorkerOnShift();
+            frmAddWorkerOnShift.Show();
+        }
+
+        private void btnRemoveWorker_Click(object sender, EventArgs e)
+        {
+            //MICANJE RADNIKA S SMJENE RADIMO TAKO DA OZNACIMO RADNIKA U TABLICI I KLIKNEMO REMOVE
+            //TIME SE ZAPISUJE TIMESTAMP ZA TOG RADNIKA/SMJENU U TABLICU
+            //VIDIT STA NAPRAVIT AKO SE RADNIK NAĐE NA SMJENI DVA PUTA
+            //MOZDA ISKEMIJAT NESTO DA SE GLEDA ONA KOJA IMA OTVOREN DATUM ZAVRSETKA
+            //A NEMOZE SE DODATI RADNIK AKO VEC POSTOJI U OVOJ TABLICI PA SE NECE NI NAPRAVIT PONOVNI POZIV
+            //I MOZDA AKO GA NEMA U TABLICI TREBA VIDITI DA U BAZI NEMA OTVORENU SMJENU JER NE MOZE RADITI NA DVI SMJENE ISTOV.
+            //O TOME JOS VIDIT KADA BUDEM RIJESAVA DETALJE
+        }
+
+        private void btnFinishShift_Click(object sender, EventArgs e)
+        {
+            //ZAKLJUCIVANJE SMJENE JE POSTAVLJANJE TIMESTAMPA NA SMJENU I NA SVE RADNIKE KOJI SU U SMJENI
+            //AKO RADIN DELETE NAKON ONDA SE PO ZAKLJUCENJU I RADI DELETE NA SKLADISTE TE SE BRISE MATERIJALI
+            //TJ POSTAVLJAJU SE KAO POTROSENI PRIKO TRANSAKCIJSKE TABLICE NARAVNO
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}

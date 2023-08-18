@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5D9AF7C1-A6DA-414E-BACD-E05594189F9C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ProjectPerun</RootNamespace>
+    <AssemblyName>ProjectPerun</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APICalls\StorageDataCalls.cs" />
+    <Compile Include="DataSets\DSStorage1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSStorage.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmAddNewMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAddNewMaterial.Designer.cs">
+      <DependentUpon>FrmAddNewMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmAddWorkerOnShift.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAddWorkerOnShift.Designer.cs">
+      <DependentUpon>FrmAddWorkerOnShift.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmChangePassword.Designer.cs">
+      <DependentUpon>FrmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmCheckAvailability.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCheckAvailability.Designer.cs">
+      <DependentUpon>FrmCheckAvailability.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmCreateProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCreateProject.Designer.cs">
+      <DependentUpon>FrmCreateProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmDeleteMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmDeleteMaterial.Designer.cs">
+      <DependentUpon>FrmDeleteMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmExportToProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmExportToProject.Designer.cs">
+      <DependentUpon>FrmExportToProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmImportFromProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmImportFromProject.Designer.cs">
+      <DependentUpon>FrmImportFromProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmInsertBatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmInsertBatch.Designer.cs">
+      <DependentUpon>FrmInsertBatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLogo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLogo.Designer.cs">
+      <DependentUpon>FrmLogo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMainMenu.Designer.cs">
+      <DependentUpon>FrmMainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmManageMaterialData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmManageMaterialData.Designer.cs">
+      <DependentUpon>FrmManageMaterialData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmManageOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmManageOrders.Designer.cs">
+      <DependentUpon>FrmManageOrders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmManageProjectData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmManageProjectData.Designer.cs">
+      <DependentUpon>FrmManageProjectData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmManageShifts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmManageShifts.Designer.cs">
+      <DependentUpon>FrmManageShifts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmManageWorkers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmManageWorkers.Designer.cs">
+      <DependentUpon>FrmManageWorkers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmManagmentMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmManagmentMenu.Designer.cs">
+      <DependentUpon>FrmManagmentMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmNewMaterialData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmNewMaterialData.Designer.cs">
+      <DependentUpon>FrmNewMaterialData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmNewOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmNewOrder.Designer.cs">
+      <DependentUpon>FrmNewOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmNewProjectMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmNewProjectMaterial.Designer.cs">
+      <DependentUpon>FrmNewProjectMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmNewWorker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmNewWorker.Designer.cs">
+      <DependentUpon>FrmNewWorker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmOrderShiftDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmOrderShiftDetails.Designer.cs">
+      <DependentUpon>FrmOrderShiftDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmOrderShowMaterials.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmOrderShowMaterials.Designer.cs">
+      <DependentUpon>FrmOrderShowMaterials.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmProduction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmProduction.Designer.cs">
+      <DependentUpon>FrmProduction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmStorage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmStorage.Designer.cs">
+      <DependentUpon>FrmStorage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmStorageMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmStorageMenu.Designer.cs">
+      <DependentUpon>FrmStorageMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmStorageMenu2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmStorageMenu2.Designer.cs">
+      <DependentUpon>FrmStorageMenu2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmUpdateMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmUpdateMaterial.Designer.cs">
+      <DependentUpon>FrmUpdateMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="Models\APIResponseModel.cs" />
+    <Compile Include="Models\MaterialDataModel.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\StorageService.cs" />
+    <EmbeddedResource Include="Forms\FrmAddNewMaterial.resx">
+      <DependentUpon>FrmAddNewMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAddWorkerOnShift.resx">
+      <DependentUpon>FrmAddWorkerOnShift.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmChangePassword.resx">
+      <DependentUpon>FrmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCheckAvailability.resx">
+      <DependentUpon>FrmCheckAvailability.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCreateProject.resx">
+      <DependentUpon>FrmCreateProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmDeleteMaterial.resx">
+      <DependentUpon>FrmDeleteMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmExportToProject.resx">
+      <DependentUpon>FrmExportToProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmImportFromProject.resx">
+      <DependentUpon>FrmImportFromProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmInsertBatch.resx">
+      <DependentUpon>FrmInsertBatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLogo.resx">
+      <DependentUpon>FrmLogo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMainMenu.resx">
+      <DependentUpon>FrmMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmManageMaterialData.resx">
+      <DependentUpon>FrmManageMaterialData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmManageOrders.resx">
+      <DependentUpon>FrmManageOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmManageProjectData.resx">
+      <DependentUpon>FrmManageProjectData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmManageShifts.resx">
+      <DependentUpon>FrmManageShifts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmManageWorkers.resx">
+      <DependentUpon>FrmManageWorkers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmManagmentMenu.resx">
+      <DependentUpon>FrmManagmentMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmNewMaterialData.resx">
+      <DependentUpon>FrmNewMaterialData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmNewOrder.resx">
+      <DependentUpon>FrmNewOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmNewProjectMaterial.resx">
+      <DependentUpon>FrmNewProjectMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmNewWorker.resx">
+      <DependentUpon>FrmNewWorker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmOrderShiftDetails.resx">
+      <DependentUpon>FrmOrderShiftDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmOrderShowMaterials.resx">
+      <DependentUpon>FrmOrderShowMaterials.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmProduction.resx">
+      <DependentUpon>FrmProduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmStorage.resx">
+      <DependentUpon>FrmStorage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmStorageMenu.resx">
+      <DependentUpon>FrmStorageMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmStorageMenu2.resx">
+      <DependentUpon>FrmStorageMenu2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmUpdateMaterial.resx">
+      <DependentUpon>FrmUpdateMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="DataSets\DSStorage.xsc">
+      <DependentUpon>DSStorage.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DSStorage.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSStorage1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSets\DSStorage.xss">
+      <DependentUpon>DSStorage.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Images\arrowLeftIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\arrowRightIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Perun Logo.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
