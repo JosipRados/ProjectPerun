@@ -22,12 +22,6 @@ namespace ProjectPerunDesktop.DataCalls
                 httpWebRequest.ContentType = "application/json";
                 httpWebRequest.Method = "GET";
 
-                //using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-                //{
-                //    string json = "{\"CustomerQuoteId\": \"" + customerQuoteId + "\", \"DATAAREAID\": " + dataAreaId + "\"}";
-                //    streamWriter.Write(json);
-                //}
-
                 var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
                 using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
                 {
@@ -42,42 +36,28 @@ namespace ProjectPerunDesktop.DataCalls
             }
         }
 
-        //internal static async Task<APIResponseModel> InsertStorageData(DataTable dataTable)
-        //{
-        //    //HttpClient client = new()
-        //    //{
-        //    //    BaseAddress = new Uri(Global.basePath)
-        //    //};
+        internal static APIResponseModel GetLastMaterialNumber()
+        {
+            try
+            {
+                string result;
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create(Global.basePath + "storage/material-number");
+                httpWebRequest.ContentType = "application/json";
+                httpWebRequest.Method = "GET";
 
-        //    //using HttpRequestMessage request = new(HttpMethod.Get, "storage/all/1");
-        //    ////request.Headers.Add("user_key", tokens[0]);
-        //    ////request.Headers.Add("Session_key", tokens[1]);
+                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    result = streamReader.ReadToEnd();
+                }
 
-        //    ////string json = JsonConvert.SerializeObject(table);
-        //    ////request.Content = new StringContent(json, Encoding.UTF8)
-        //    ////{
-        //    ////    Headers =
-        //    ////    {
-        //    ////        ContentType = new("application/json")
-        //    ////    }
-        //    ////};
-        //    //try
-        //    //{
-        //    //    using HttpResponseMessage response = await client.SendAsync(request);
-        //    //    response.EnsureSuccessStatusCode();
-        //    //    string serverResponse = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<APIResponseModel>(result);
+            }
+            catch (Exception ex)
+            {
+                return new APIResponseModel(false, ex.Message, new DataTable());
+            }
+        }
 
-        //    //    serverResponse = serverResponse.Replace("STO_", "");
-
-        //    //    APIResponseModel? apiResponse = JsonConvert.DeserializeObject<APIResponseModel>(serverResponse);
-
-        //    //    return (apiResponse == null) ? throw new Exception("API response is null!") : apiResponse;
-        //    //}
-        //    //catch (Exception ex)
-        //    //{
-        //    //    return new APIResponseModel(false, ex.Message, new DataTable());
-        //    //}
-        //    return new APIResponseModel();
-        //}
     }
 }

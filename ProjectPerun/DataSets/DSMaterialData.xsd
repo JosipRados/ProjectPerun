@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSMaterialData" targetNamespace="http://tempuri.org/DSMaterialData.xsd" xmlns:mstns="http://tempuri.org/DSMaterialData.xsd" xmlns="http://tempuri.org/DSMaterialData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSMaterialData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DSMaterialData" msprop:Generator_DataSetName="DSMaterialData">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="MaterialData" msprop:Generator_RowEvHandlerName="MaterialDataRowChangeEventHandler" msprop:Generator_RowDeletedName="MaterialDataRowDeleted" msprop:Generator_RowDeletingName="MaterialDataRowDeleting" msprop:Generator_RowEvArgName="MaterialDataRowChangeEvent" msprop:Generator_TablePropName="MaterialData" msprop:Generator_RowChangedName="MaterialDataRowChanged" msprop:Generator_RowChangingName="MaterialDataRowChanging" msprop:Generator_TableClassName="MaterialDataDataTable" msprop:Generator_RowClassName="MaterialDataRow" msprop:Generator_TableVarName="tableMaterialData" msprop:Generator_UserTableName="MaterialData">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_UserColumnName="ID" type="xs:long" minOccurs="0" />
+              <xs:element name="Code" msprop:Generator_ColumnPropNameInRow="Code" msprop:Generator_ColumnPropNameInTable="CodeColumn" msprop:Generator_ColumnVarNameInTable="columnCode" msprop:Generator_UserColumnName="Code" type="xs:string" minOccurs="0" />
+              <xs:element name="MaterialType" msprop:Generator_ColumnPropNameInRow="MaterialType" msprop:Generator_ColumnPropNameInTable="MaterialTypeColumn" msprop:Generator_ColumnVarNameInTable="columnMaterialType" msprop:Generator_UserColumnName="MaterialType" type="xs:string" minOccurs="0" />
+              <xs:element name="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_UserColumnName="Description" type="xs:string" minOccurs="0" />
+              <xs:element name="TimeStamp" msprop:Generator_ColumnPropNameInRow="TimeStamp" msprop:Generator_ColumnPropNameInTable="TimeStampColumn" msprop:Generator_ColumnVarNameInTable="columnTimeStamp" msprop:Generator_UserColumnName="TimeStamp" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="UserID" msprop:Generator_ColumnPropNameInRow="UserID" msprop:Generator_ColumnPropNameInTable="UserIDColumn" msprop:Generator_ColumnVarNameInTable="columnUserID" msprop:Generator_UserColumnName="UserID" type="xs:long" minOccurs="0" />
+              <xs:element name="Active" msprop:Generator_ColumnPropNameInRow="Active" msprop:Generator_ColumnPropNameInTable="ActiveColumn" msprop:Generator_ColumnVarNameInTable="columnActive" msprop:Generator_UserColumnName="Active" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

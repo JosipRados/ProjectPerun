@@ -8,7 +8,7 @@ namespace ProjectPerunDesktop
 {
     static internal class Global
     {
-        static internal int userID;
+        static internal int userID = 1;
         static internal string userRole = "POWERUSER";
         static internal string basePath = "https://localhost:7277/api/";
     }

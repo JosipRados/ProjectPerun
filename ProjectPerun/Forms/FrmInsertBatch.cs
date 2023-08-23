@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ProjectPerun.DataSets;
+using ProjectPerun.Services;
+using ProjectPerunDesktop.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +15,52 @@ namespace ProjectPerunDesktop.Forms
 {
     public partial class FrmInsertBatch : Form
     {
+        DSWarehouse dsWarehouses = new DSWarehouse();
+        DSBatchData dsBatch = new DSBatchData();
+        DSTransactionStorage dsImport = new DSTransactionStorage();
+        int newBatchNumber;
+        int materialNumber;
         public FrmInsertBatch()
         {
             InitializeComponent();
+        }
+
+        private void FrmInsertBatch_Load(object sender, EventArgs e)
+        {
+            var responseBatch = BatchService.GetNewBatchID();
+            if (responseBatch == null || responseBatch.Rows.Count <= 0)
+            {
+                MessageBox.Show("Couldn't load new batch number, please try to close and opet window again.");
+                return;
+            }
+            else
+            {
+                newBatchNumber = int.Parse(responseBatch.Rows[0]["BatchNumber"].ToString());
+                tbBatchNumber.Text = newBatchNumber.ToString();
+            }
+
+            var responseWarehouse = WarehouseService.GetWarehouseData();
+            if (responseWarehouse == null || responseWarehouse.Rows.Count <= 0)
+            {
+                MessageBox.Show("Couldn't load Warehouses, please try to close and opet window again.");
+                return;
+            }
+            else
+                dsWarehouses.Warehouse.Merge(responseWarehouse);
+
+            var responseMaterialNumber = StorageService.GetLastMaterialNumber();
+            if (responseMaterialNumber == null || responseMaterialNumber.Rows.Count <= 0)
+            {
+                MessageBox.Show("Couldn't load new batch number, please try to close and opet window again.");
+                return;
+            }
+            else
+            {
+                materialNumber = int.Parse(responseMaterialNumber.Rows[0]["MaterialNumber"].ToString());
+                tbNumber.Text = materialNumber.ToString();
+            }
+                
+            
         }
 
         private void brnGetData_Click(object sender, EventArgs e)
@@ -47,6 +93,38 @@ namespace ProjectPerunDesktop.Forms
             //NAPRAVIT PROVJERU AKO JE SVE OK ONDA SE VRAĆA NA FORMU SKLADISTE 
             //AKO NIJE SVE OK OSTAJE OVA FORMA OTVORENA S PODATCIMA KOJI JESU SAMO SE DS MIJENJA
             //MISLIN DA BI TRIBALO BIT OK NAMISTIT TO AKO VRATIN IDENTICNE PODATKE KOJE SAN POSLA
+
+            foreach(var row in dsImport.TransactionTable)
+            {
+                row.BatchID = newBatchNumber;
+                row.TransactionType = "IMPORT";
+            }
         }
+
+        private void rbNewBatch_Click(object sender, EventArgs e)
+        {
+            tbBatchNumber.ReadOnly = true;
+            tbSender.ReadOnly = false;
+            tbDate.ReadOnly = false;
+            ClearBatchFields();
+            tbBatchNumber.Text = newBatchNumber.ToString();
+        }
+
+        private void rbExistingBatch_Click(object sender, EventArgs e)
+        {
+            tbBatchNumber.ReadOnly = false;
+            tbSender.ReadOnly = true;
+            tbDate.ReadOnly = true;
+            ClearBatchFields();
+        }
+
+        private void ClearBatchFields()
+        {
+            tbBatchNumber.Clear();
+            tbSender.Clear();
+            tbDate.Clear();
+        }
+
+
     }
 }

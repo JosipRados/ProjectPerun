@@ -49,11 +49,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="APICalls\BatchDataCalls.cs" />
+    <Compile Include="APICalls\MaterialDataCalls.cs" />
+    <Compile Include="APICalls\ProjectDataCalls.cs" />
     <Compile Include="APICalls\StorageDataCalls.cs" />
+    <Compile Include="APICalls\WarehouseDataCalls.cs" />
+    <Compile Include="DataSets\DSBatchData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSBatchData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\DSMaterialData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSMaterialData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\DSProjectMaterials.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSProjectMaterials.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\DSProjects.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSProjects.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\DSStorage1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSStorage.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\DSTransactionStorage.cs">
+      <DependentUpon>DSTransactionStorage.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\DSTransactionStorage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSTransactionStorage.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\DSWarehouse.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSWarehouse.xsd</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -238,9 +275,14 @@
     <Compile Include="Global.cs" />
     <Compile Include="Models\APIResponseModel.cs" />
     <Compile Include="Models\MaterialDataModel.cs" />
+    <Compile Include="Models\ProjectDataModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BatchService.cs" />
+    <Compile Include="Services\MaterialDataService.cs" />
+    <Compile Include="Services\ProjectService.cs" />
     <Compile Include="Services\StorageService.cs" />
+    <Compile Include="Services\WarehouseService.cs" />
     <EmbeddedResource Include="Forms\FrmAddNewMaterial.resx">
       <DependentUpon>FrmAddNewMaterial.cs</DependentUpon>
     </EmbeddedResource>
@@ -338,6 +380,50 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="DataSets\DSBatchData.xsc">
+      <DependentUpon>DSBatchData.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DSBatchData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSBatchData.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\DSBatchData.xss">
+      <DependentUpon>DSBatchData.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DSMaterialData.xsc">
+      <DependentUpon>DSMaterialData.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DSMaterialData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSMaterialData.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\DSMaterialData.xss">
+      <DependentUpon>DSMaterialData.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DSProjectMaterials.xsc">
+      <DependentUpon>DSProjectMaterials.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DSProjectMaterials.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSProjectMaterials.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\DSProjectMaterials.xss">
+      <DependentUpon>DSProjectMaterials.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DSProjects.xsc">
+      <DependentUpon>DSProjects.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DSProjects.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSProjects.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\DSProjects.xss">
+      <DependentUpon>DSProjects.xsd</DependentUpon>
+    </None>
     <None Include="DataSets\DSStorage.xsc">
       <DependentUpon>DSStorage.xsd</DependentUpon>
     </None>
@@ -348,6 +434,28 @@
     </None>
     <None Include="DataSets\DSStorage.xss">
       <DependentUpon>DSStorage.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DSTransactionStorage.xsc">
+      <DependentUpon>DSTransactionStorage.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DSTransactionStorage.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSTransactionStorage.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\DSTransactionStorage.xss">
+      <DependentUpon>DSTransactionStorage.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DSWarehouse.xsc">
+      <DependentUpon>DSWarehouse.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DSWarehouse.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSWarehouse.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\DSWarehouse.xss">
+      <DependentUpon>DSWarehouse.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

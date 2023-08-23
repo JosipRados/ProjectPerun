@@ -16,5 +16,11 @@ namespace ProjectPerunDesktop.Services
             APIResponseModel response = StorageDataCalls.GetStorageData();
             return (response.Data == null) ? new DataTable() : response.Data;
         }
+
+        public static DataTable GetLastMaterialNumber()
+        {
+            APIResponseModel response = StorageDataCalls.GetLastMaterialNumber();
+            return (response.Data == null) ? new DataTable() : response.Data;
+        }
     }
 }
