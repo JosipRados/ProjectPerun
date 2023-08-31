@@ -30,10 +30,10 @@ namespace ProjectPerunDesktop.Forms
         private void InitializeComponent()
         {
             this.gbStorageMaterial = new System.Windows.Forms.GroupBox();
-            this.btnProduction = new System.Windows.Forms.Button();
             this.btnFInishing = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.gbProjectMaterial = new System.Windows.Forms.GroupBox();
+            this.btnDone = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnReturnFinishing = new System.Windows.Forms.Button();
@@ -48,7 +48,7 @@ namespace ProjectPerunDesktop.Forms
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnDone = new System.Windows.Forms.Button();
+            this.btnProduction = new System.Windows.Forms.Button();
             this.gbStorageMaterial.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gbProjectMaterial.SuspendLayout();
@@ -63,28 +63,21 @@ namespace ProjectPerunDesktop.Forms
             this.gbStorageMaterial.Controls.Add(this.btnProduction);
             this.gbStorageMaterial.Controls.Add(this.btnFInishing);
             this.gbStorageMaterial.Controls.Add(this.dataGridView1);
-            this.gbStorageMaterial.Location = new System.Drawing.Point(439, 22);
+            this.gbStorageMaterial.Location = new System.Drawing.Point(439, 18);
+            this.gbStorageMaterial.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbStorageMaterial.Name = "gbStorageMaterial";
-            this.gbStorageMaterial.Size = new System.Drawing.Size(714, 296);
+            this.gbStorageMaterial.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbStorageMaterial.Size = new System.Drawing.Size(714, 237);
             this.gbStorageMaterial.TabIndex = 0;
             this.gbStorageMaterial.TabStop = false;
             this.gbStorageMaterial.Text = "Storage Material";
             // 
-            // btnProduction
-            // 
-            this.btnProduction.Location = new System.Drawing.Point(555, 179);
-            this.btnProduction.Name = "btnProduction";
-            this.btnProduction.Size = new System.Drawing.Size(145, 43);
-            this.btnProduction.TabIndex = 8;
-            this.btnProduction.Text = "TO PRODUCTION";
-            this.btnProduction.UseVisualStyleBackColor = true;
-            this.btnProduction.Click += new System.EventHandler(this.btnProduction_Click);
-            // 
             // btnFInishing
             // 
-            this.btnFInishing.Location = new System.Drawing.Point(555, 228);
+            this.btnFInishing.Location = new System.Drawing.Point(555, 182);
+            this.btnFInishing.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnFInishing.Name = "btnFInishing";
-            this.btnFInishing.Size = new System.Drawing.Size(145, 43);
+            this.btnFInishing.Size = new System.Drawing.Size(145, 34);
             this.btnFInishing.TabIndex = 7;
             this.btnFInishing.Text = "TO FINISHING";
             this.btnFInishing.UseVisualStyleBackColor = true;
@@ -93,11 +86,12 @@ namespace ProjectPerunDesktop.Forms
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(22, 41);
+            this.dataGridView1.Location = new System.Drawing.Point(22, 33);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(527, 230);
+            this.dataGridView1.Size = new System.Drawing.Size(527, 184);
             this.dataGridView1.TabIndex = 6;
             // 
             // gbProjectMaterial
@@ -109,18 +103,31 @@ namespace ProjectPerunDesktop.Forms
             this.gbProjectMaterial.Controls.Add(this.btnReturnProduction);
             this.gbProjectMaterial.Controls.Add(this.dataGridView3);
             this.gbProjectMaterial.Controls.Add(this.dataGridView2);
-            this.gbProjectMaterial.Location = new System.Drawing.Point(24, 338);
+            this.gbProjectMaterial.Location = new System.Drawing.Point(24, 270);
+            this.gbProjectMaterial.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbProjectMaterial.Name = "gbProjectMaterial";
-            this.gbProjectMaterial.Size = new System.Drawing.Size(1129, 296);
+            this.gbProjectMaterial.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbProjectMaterial.Size = new System.Drawing.Size(1129, 237);
             this.gbProjectMaterial.TabIndex = 1;
             this.gbProjectMaterial.TabStop = false;
             this.gbProjectMaterial.Text = "Order Material:";
             // 
+            // btnDone
+            // 
+            this.btnDone.Location = new System.Drawing.Point(1027, 170);
+            this.btnDone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDone.Name = "btnDone";
+            this.btnDone.Size = new System.Drawing.Size(102, 66);
+            this.btnDone.TabIndex = 13;
+            this.btnDone.Text = "DONE";
+            this.btnDone.UseVisualStyleBackColor = true;
+            this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(574, 44);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label2.Location = new System.Drawing.Point(574, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 23);
             this.label2.TabIndex = 12;
@@ -129,8 +136,8 @@ namespace ProjectPerunDesktop.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(22, 44);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label1.Location = new System.Drawing.Point(22, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 23);
             this.label1.TabIndex = 11;
@@ -139,9 +146,10 @@ namespace ProjectPerunDesktop.Forms
             // 
             // btnReturnFinishing
             // 
-            this.btnReturnFinishing.Location = new System.Drawing.Point(967, 70);
+            this.btnReturnFinishing.Location = new System.Drawing.Point(967, 56);
+            this.btnReturnFinishing.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReturnFinishing.Name = "btnReturnFinishing";
-            this.btnReturnFinishing.Size = new System.Drawing.Size(102, 43);
+            this.btnReturnFinishing.Size = new System.Drawing.Size(102, 34);
             this.btnReturnFinishing.TabIndex = 10;
             this.btnReturnFinishing.Text = "RETURN";
             this.btnReturnFinishing.UseVisualStyleBackColor = true;
@@ -149,9 +157,10 @@ namespace ProjectPerunDesktop.Forms
             // 
             // btnReturnProduction
             // 
-            this.btnReturnProduction.Location = new System.Drawing.Point(415, 70);
+            this.btnReturnProduction.Location = new System.Drawing.Point(415, 56);
+            this.btnReturnProduction.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReturnProduction.Name = "btnReturnProduction";
-            this.btnReturnProduction.Size = new System.Drawing.Size(102, 43);
+            this.btnReturnProduction.Size = new System.Drawing.Size(102, 34);
             this.btnReturnProduction.TabIndex = 9;
             this.btnReturnProduction.Text = "RETURN";
             this.btnReturnProduction.UseVisualStyleBackColor = true;
@@ -160,21 +169,23 @@ namespace ProjectPerunDesktop.Forms
             // dataGridView3
             // 
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(22, 70);
+            this.dataGridView3.Location = new System.Drawing.Point(22, 56);
+            this.dataGridView3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersWidth = 51;
             this.dataGridView3.RowTemplate.Height = 29;
-            this.dataGridView3.Size = new System.Drawing.Size(387, 200);
+            this.dataGridView3.Size = new System.Drawing.Size(387, 160);
             this.dataGridView3.TabIndex = 9;
             // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(574, 70);
+            this.dataGridView2.Location = new System.Drawing.Point(574, 56);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 29;
-            this.dataGridView2.Size = new System.Drawing.Size(387, 200);
+            this.dataGridView2.Size = new System.Drawing.Size(387, 160);
             this.dataGridView2.TabIndex = 8;
             // 
             // gbProjectData
@@ -186,9 +197,11 @@ namespace ProjectPerunDesktop.Forms
             this.gbProjectData.Controls.Add(this.label5);
             this.gbProjectData.Controls.Add(this.label4);
             this.gbProjectData.Controls.Add(this.label3);
-            this.gbProjectData.Location = new System.Drawing.Point(24, 22);
+            this.gbProjectData.Location = new System.Drawing.Point(24, 18);
+            this.gbProjectData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbProjectData.Name = "gbProjectData";
-            this.gbProjectData.Size = new System.Drawing.Size(384, 296);
+            this.gbProjectData.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbProjectData.Size = new System.Drawing.Size(384, 237);
             this.gbProjectData.TabIndex = 2;
             this.gbProjectData.TabStop = false;
             this.gbProjectData.Text = "Order Data:";
@@ -196,40 +209,44 @@ namespace ProjectPerunDesktop.Forms
             // dataGridView4
             // 
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(22, 149);
+            this.dataGridView4.Location = new System.Drawing.Point(22, 119);
+            this.dataGridView4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowHeadersWidth = 51;
             this.dataGridView4.RowTemplate.Height = 29;
-            this.dataGridView4.Size = new System.Drawing.Size(342, 122);
+            this.dataGridView4.Size = new System.Drawing.Size(342, 98);
             this.dataGridView4.TabIndex = 13;
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(150, 36);
+            this.comboBox1.Location = new System.Drawing.Point(150, 29);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(214, 28);
+            this.comboBox1.Size = new System.Drawing.Size(214, 24);
             this.comboBox1.TabIndex = 17;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(150, 103);
+            this.textBox3.Location = new System.Drawing.Point(150, 82);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(214, 27);
+            this.textBox3.Size = new System.Drawing.Size(214, 22);
             this.textBox3.TabIndex = 16;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(150, 70);
+            this.textBox2.Location = new System.Drawing.Point(150, 56);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(214, 27);
+            this.textBox2.Size = new System.Drawing.Size(214, 22);
             this.textBox2.TabIndex = 15;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(6, 74);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label5.Location = new System.Drawing.Point(6, 59);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(118, 23);
             this.label5.TabIndex = 14;
@@ -238,8 +255,8 @@ namespace ProjectPerunDesktop.Forms
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(6, 107);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label4.Location = new System.Drawing.Point(6, 86);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 23);
             this.label4.TabIndex = 13;
@@ -248,32 +265,34 @@ namespace ProjectPerunDesktop.Forms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(6, 41);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label3.Location = new System.Drawing.Point(6, 33);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(126, 23);
             this.label3.TabIndex = 12;
             this.label3.Text = "Order Number:";
             // 
-            // btnDone
+            // btnProduction
             // 
-            this.btnDone.Location = new System.Drawing.Point(1027, 213);
-            this.btnDone.Name = "btnDone";
-            this.btnDone.Size = new System.Drawing.Size(102, 83);
-            this.btnDone.TabIndex = 13;
-            this.btnDone.Text = "DONE";
-            this.btnDone.UseVisualStyleBackColor = true;
-            this.btnDone.Click += new System.EventHandler(this.btnDone_Click);
+            this.btnProduction.Location = new System.Drawing.Point(555, 143);
+            this.btnProduction.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnProduction.Name = "btnProduction";
+            this.btnProduction.Size = new System.Drawing.Size(145, 34);
+            this.btnProduction.TabIndex = 8;
+            this.btnProduction.Text = "TO PRODUCTION";
+            this.btnProduction.UseVisualStyleBackColor = true;
+            this.btnProduction.Click += new System.EventHandler(this.btnProduction_Click);
             // 
             // FrmExportToProject
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1182, 663);
+            this.ClientSize = new System.Drawing.Size(1182, 530);
             this.Controls.Add(this.gbProjectData);
             this.Controls.Add(this.gbProjectMaterial);
             this.Controls.Add(this.gbStorageMaterial);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmExportToProject";
             this.Text = "FrmExportToProject";
             this.gbStorageMaterial.ResumeLayout(false);
@@ -299,7 +318,6 @@ namespace ProjectPerunDesktop.Forms
         private Button btnReturnFinishing;
         private Button btnReturnProduction;
         private DataGridView dataGridView3;
-        private Button btnProduction;
         private Button btnFInishing;
         private Label label2;
         private GroupBox gbProjectData;
@@ -311,5 +329,6 @@ namespace ProjectPerunDesktop.Forms
         private Label label4;
         private Label label3;
         private Button btnDone;
+        private Button btnProduction;
     }
 }

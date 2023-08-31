@@ -1,5 +1,8 @@
-﻿using ProjectPerun.APICalls;
+﻿using Newtonsoft.Json;
+using ProjectPerun.APICalls;
 using ProjectPerun.DataSets;
+using ProjectPerun.Models;
+using ProjectPerunDesktop;
 using ProjectPerunDesktop.Models;
 using System;
 using System.Collections.Generic;
@@ -14,37 +17,58 @@ namespace ProjectPerun.Services
     {
         public static DataTable GetBatchData()
         {
-            APIResponseModel response = BatchDataCalls.GetBatchData();
+            RequestParametersModel parameters = new RequestParametersModel(Global.basePath + "batch", "GET", "", "BAT_");
+            APIResponseModel response = RequestClass.GetRequest(parameters);
+
             return (response.Data == null) ? new DataTable() : response.Data;
         }
 
         public static DataTable GetOneBatchData(int batchID)
         {
-            APIResponseModel response = BatchDataCalls.GetOneBatchData(batchID);
+            RequestParametersModel parameters = new RequestParametersModel(Global.basePath + "batch/" + batchID.ToString(), "GET", "", "BAT_");
+            APIResponseModel response = RequestClass.GetRequest(parameters);
+
             return (response.Data == null) ? new DataTable() : response.Data;
         }
 
         public static APIResponseModel InsertBatchData(DSBatchData dsBatchData)
         {
-            APIResponseModel response = BatchDataCalls.InsertBatchData(dsBatchData);
+            string json = JsonConvert.SerializeObject(dsBatchData.BatchTable);
+            json = "{\"BatchData\" : " + json + "}";
+
+            RequestParametersModel parameters = new RequestParametersModel(Global.basePath + "batch", "POST", json);
+            APIResponseModel response = RequestClass.Request(parameters);
+
             return response;
         }
 
         public static APIResponseModel UpdateBatchData(DSBatchData dsBatchData)
         {
-            APIResponseModel response = BatchDataCalls.UpdateBatchData(dsBatchData);
+            string json = JsonConvert.SerializeObject(dsBatchData.BatchTable);
+            json = "{\"BatchData\" : " + json + "}";
+
+            RequestParametersModel parameters = new RequestParametersModel(Global.basePath + "batch", "PUT", json);
+            APIResponseModel response = RequestClass.Request(parameters);
+
             return response;
         }
 
         public static APIResponseModel DeleteBatchData(DSBatchData dsBatchData)
         {
-            APIResponseModel response = BatchDataCalls.DeleteBatchData(dsBatchData);
+            string json = JsonConvert.SerializeObject(dsBatchData.BatchTable);
+            json = "{\"BatchData\" : " + json + "}";
+
+            RequestParametersModel parameters = new RequestParametersModel(Global.basePath + "batch", "DELETE", json);
+            APIResponseModel response = RequestClass.Request(parameters);
+
             return response;
         }
 
         public static DataTable GetNewBatchID()
         {
-            APIResponseModel response = BatchDataCalls.GetNewBatchID();
+            RequestParametersModel parameters = new RequestParametersModel(Global.basePath + "batch/batch-number", "GET");
+            APIResponseModel response = RequestClass.GetRequest(parameters);
+
             return (response.Data == null) ? new DataTable() : response.Data;
         }
     }

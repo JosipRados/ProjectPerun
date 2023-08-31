@@ -1,5 +1,8 @@
-﻿using ProjectPerun.APICalls;
+﻿using Newtonsoft.Json;
+using ProjectPerun.APICalls;
 using ProjectPerun.DataSets;
+using ProjectPerun.Models;
+using ProjectPerunDesktop;
 using ProjectPerunDesktop.DataCalls;
 using ProjectPerunDesktop.Models;
 using System;
@@ -15,25 +18,42 @@ namespace ProjectPerun.Services
     {
         public static DataTable GetMaterialData()
         {
-            APIResponseModel response = MaterialDataCalls.GetMaterialData();
+            RequestParametersModel parameters = new RequestParametersModel(Global.basePath + "material-data", "GET", "", "MAT_");
+            APIResponseModel response = RequestClass.GetRequest(parameters);
+
             return (response.Data == null) ? new DataTable() : response.Data;
         }
 
         public static APIResponseModel InsertMaterialData(DSMaterialData materialData)
         {
-            APIResponseModel response = MaterialDataCalls.InsertMaterialData(materialData);
+            string json = JsonConvert.SerializeObject(materialData.MaterialData);
+            json = "{\"materialData\" : " + json + "}";
+
+            RequestParametersModel parameters = new RequestParametersModel(Global.basePath + "material-data", "POST", json);
+            APIResponseModel response = RequestClass.Request(parameters);
+
             return response;
         }
 
         public static APIResponseModel UpdateMaterialData(DSMaterialData materialData)
         {
-            APIResponseModel response = MaterialDataCalls.UpdateMaterialData(materialData);
+            string json = JsonConvert.SerializeObject(materialData.MaterialData);
+            json = "{\"materialData\" : " + json + "}";
+
+            RequestParametersModel parameters = new RequestParametersModel(Global.basePath + "material-data", "PUT", json);
+            APIResponseModel response = RequestClass.Request(parameters);
+
             return response;
         }
 
         public static APIResponseModel DeleteMaterialData(DSMaterialData materialData)
         {
-            APIResponseModel response = MaterialDataCalls.DeleteMaterialData(materialData);
+            string json = JsonConvert.SerializeObject(materialData.MaterialData);
+            json = "{\"materialData\" : " + json + "}";
+
+            RequestParametersModel parameters = new RequestParametersModel(Global.basePath + "material-data", "DELETE", json);
+            APIResponseModel response = RequestClass.Request(parameters);
+
             return response;
         }
     }

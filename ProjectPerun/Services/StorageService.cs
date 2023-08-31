@@ -1,4 +1,6 @@
-﻿using ProjectPerunDesktop.DataCalls;
+﻿using ProjectPerun.APICalls;
+using ProjectPerun.Models;
+using ProjectPerunDesktop.DataCalls;
 using ProjectPerunDesktop.Models;
 using System;
 using System.Collections.Generic;
@@ -13,13 +15,17 @@ namespace ProjectPerunDesktop.Services
     {
         public static DataTable GetStorageData()
         {
-            APIResponseModel response = StorageDataCalls.GetStorageData();
+            RequestParametersModel parameters = new RequestParametersModel(Global.basePath + "storage/all/1", "GET", "", "STO_");
+            APIResponseModel response = RequestClass.GetRequest(parameters);
+
             return (response.Data == null) ? new DataTable() : response.Data;
         }
 
         public static DataTable GetLastMaterialNumber()
         {
-            APIResponseModel response = StorageDataCalls.GetLastMaterialNumber();
+            RequestParametersModel parameters = new RequestParametersModel(Global.basePath + "storage/material-number", "GET");
+            APIResponseModel response = RequestClass.GetRequest(parameters);
+
             return (response.Data == null) ? new DataTable() : response.Data;
         }
     }

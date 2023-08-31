@@ -52,6 +52,7 @@
     <Compile Include="APICalls\BatchDataCalls.cs" />
     <Compile Include="APICalls\MaterialDataCalls.cs" />
     <Compile Include="APICalls\ProjectDataCalls.cs" />
+    <Compile Include="APICalls\RequestClass.cs" />
     <Compile Include="APICalls\StorageDataCalls.cs" />
     <Compile Include="APICalls\WarehouseDataCalls.cs" />
     <Compile Include="DataSets\DSBatchData.Designer.cs">
@@ -273,6 +274,7 @@
       <DependentUpon>FrmUpdateMaterial.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
+    <Compile Include="Models\RequestParametersModel.cs" />
     <Compile Include="Models\APIResponseModel.cs" />
     <Compile Include="Models\MaterialDataModel.cs" />
     <Compile Include="Models\ProjectDataModel.cs" />
