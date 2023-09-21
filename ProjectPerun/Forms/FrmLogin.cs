@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProjectPerun.Models;
+using ProjectPerun.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,9 +21,21 @@ namespace ProjectPerunDesktop.Forms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            // PROVJERI PODATKE
-            // ZAPISE ROLU I ID U GLOBAL
-            // OTVORI FRMMENU
+            var response = UsersService.LoginUser(new LoginModel(tbUsername.Text, tbPassword.Text));
+            if (response.Success)
+            {
+                int.TryParse(response.Data.Rows[0]["UserID"].ToString(), out Global.userID);
+                Global.userRole = response.Data.Rows[0]["Role"].ToString();
+                FrmMainMenu frmMainMenu = new FrmMainMenu();
+                this.Hide();
+                frmMainMenu.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Login Failed, try again!");
+                return;
+            }
         }
     }
 }

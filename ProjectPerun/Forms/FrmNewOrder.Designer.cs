@@ -39,16 +39,17 @@ namespace ProjectPerunDesktop.Forms
             // 
             // tbQuantity
             // 
-            this.tbQuantity.Location = new System.Drawing.Point(181, 71);
+            this.tbQuantity.Location = new System.Drawing.Point(181, 57);
+            this.tbQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbQuantity.Name = "tbQuantity";
-            this.tbQuantity.Size = new System.Drawing.Size(202, 27);
+            this.tbQuantity.Size = new System.Drawing.Size(202, 22);
             this.tbQuantity.TabIndex = 17;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(31, 75);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label3.Location = new System.Drawing.Point(31, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(129, 23);
             this.label3.TabIndex = 16;
@@ -57,8 +58,8 @@ namespace ProjectPerunDesktop.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(31, 37);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label2.Location = new System.Drawing.Point(31, 30);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(118, 23);
             this.label2.TabIndex = 14;
@@ -67,16 +68,18 @@ namespace ProjectPerunDesktop.Forms
             // cbProjectName
             // 
             this.cbProjectName.FormattingEnabled = true;
-            this.cbProjectName.Location = new System.Drawing.Point(181, 32);
+            this.cbProjectName.Location = new System.Drawing.Point(181, 26);
+            this.cbProjectName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbProjectName.Name = "cbProjectName";
-            this.cbProjectName.Size = new System.Drawing.Size(202, 28);
+            this.cbProjectName.Size = new System.Drawing.Size(202, 24);
             this.cbProjectName.TabIndex = 18;
             // 
             // btnCheckAvailability
             // 
-            this.btnCheckAvailability.Location = new System.Drawing.Point(31, 141);
+            this.btnCheckAvailability.Location = new System.Drawing.Point(31, 113);
+            this.btnCheckAvailability.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCheckAvailability.Name = "btnCheckAvailability";
-            this.btnCheckAvailability.Size = new System.Drawing.Size(352, 38);
+            this.btnCheckAvailability.Size = new System.Drawing.Size(352, 30);
             this.btnCheckAvailability.TabIndex = 19;
             this.btnCheckAvailability.Text = "CHECK AVAILABILITY";
             this.btnCheckAvailability.UseVisualStyleBackColor = true;
@@ -84,9 +87,10 @@ namespace ProjectPerunDesktop.Forms
             // 
             // btnCreateOrder
             // 
-            this.btnCreateOrder.Location = new System.Drawing.Point(31, 185);
+            this.btnCreateOrder.Location = new System.Drawing.Point(31, 148);
+            this.btnCreateOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCreateOrder.Name = "btnCreateOrder";
-            this.btnCreateOrder.Size = new System.Drawing.Size(352, 38);
+            this.btnCreateOrder.Size = new System.Drawing.Size(352, 30);
             this.btnCreateOrder.TabIndex = 20;
             this.btnCreateOrder.Text = "CREATE ORDER";
             this.btnCreateOrder.UseVisualStyleBackColor = true;
@@ -94,17 +98,19 @@ namespace ProjectPerunDesktop.Forms
             // 
             // FrmNewOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(421, 240);
+            this.ClientSize = new System.Drawing.Size(421, 192);
             this.Controls.Add(this.btnCreateOrder);
             this.Controls.Add(this.btnCheckAvailability);
             this.Controls.Add(this.cbProjectName);
             this.Controls.Add(this.tbQuantity);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmNewOrder";
             this.Text = "FrmNewOrder";
+            this.Load += new System.EventHandler(this.FrmNewOrder_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

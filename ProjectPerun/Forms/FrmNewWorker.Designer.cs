@@ -48,16 +48,17 @@ namespace ProjectPerunDesktop.Forms
             // 
             // tbHourRate
             // 
-            this.tbHourRate.Location = new System.Drawing.Point(169, 176);
+            this.tbHourRate.Location = new System.Drawing.Point(169, 141);
+            this.tbHourRate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbHourRate.Name = "tbHourRate";
-            this.tbHourRate.Size = new System.Drawing.Size(208, 27);
+            this.tbHourRate.Size = new System.Drawing.Size(208, 22);
             this.tbHourRate.TabIndex = 38;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(37, 180);
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label5.Location = new System.Drawing.Point(37, 144);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 23);
             this.label5.TabIndex = 37;
@@ -66,8 +67,8 @@ namespace ProjectPerunDesktop.Forms
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(37, 133);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label4.Location = new System.Drawing.Point(37, 106);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 23);
             this.label4.TabIndex = 35;
@@ -75,16 +76,17 @@ namespace ProjectPerunDesktop.Forms
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(169, 29);
+            this.tbUsername.Location = new System.Drawing.Point(169, 23);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(208, 27);
+            this.tbUsername.Size = new System.Drawing.Size(208, 22);
             this.tbUsername.TabIndex = 34;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(37, 33);
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label1.Location = new System.Drawing.Point(37, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 23);
             this.label1.TabIndex = 33;
@@ -92,16 +94,17 @@ namespace ProjectPerunDesktop.Forms
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(169, 62);
+            this.tbName.Location = new System.Drawing.Point(169, 50);
+            this.tbName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(208, 27);
+            this.tbName.Size = new System.Drawing.Size(208, 22);
             this.tbName.TabIndex = 40;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(37, 66);
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label2.Location = new System.Drawing.Point(37, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 23);
             this.label2.TabIndex = 39;
@@ -109,16 +112,17 @@ namespace ProjectPerunDesktop.Forms
             // 
             // tbSurname
             // 
-            this.tbSurname.Location = new System.Drawing.Point(169, 95);
+            this.tbSurname.Location = new System.Drawing.Point(169, 76);
+            this.tbSurname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbSurname.Name = "tbSurname";
-            this.tbSurname.Size = new System.Drawing.Size(208, 27);
+            this.tbSurname.Size = new System.Drawing.Size(208, 22);
             this.tbSurname.TabIndex = 42;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(37, 99);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label3.Location = new System.Drawing.Point(37, 79);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 23);
             this.label3.TabIndex = 41;
@@ -126,17 +130,18 @@ namespace ProjectPerunDesktop.Forms
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(169, 222);
+            this.tbPassword.Location = new System.Drawing.Point(169, 178);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
-            this.tbPassword.Size = new System.Drawing.Size(208, 27);
+            this.tbPassword.Size = new System.Drawing.Size(208, 22);
             this.tbPassword.TabIndex = 44;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(37, 226);
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label6.Location = new System.Drawing.Point(37, 181);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(84, 23);
             this.label6.TabIndex = 43;
@@ -144,17 +149,18 @@ namespace ProjectPerunDesktop.Forms
             // 
             // tbPasswordRepeat
             // 
-            this.tbPasswordRepeat.Location = new System.Drawing.Point(169, 255);
+            this.tbPasswordRepeat.Location = new System.Drawing.Point(169, 204);
+            this.tbPasswordRepeat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbPasswordRepeat.Name = "tbPasswordRepeat";
             this.tbPasswordRepeat.PasswordChar = '*';
-            this.tbPasswordRepeat.Size = new System.Drawing.Size(208, 27);
+            this.tbPasswordRepeat.Size = new System.Drawing.Size(208, 22);
             this.tbPasswordRepeat.TabIndex = 46;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(37, 259);
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label7.Location = new System.Drawing.Point(37, 207);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(104, 23);
             this.label7.TabIndex = 45;
@@ -162,26 +168,29 @@ namespace ProjectPerunDesktop.Forms
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(37, 349);
+            this.btnCreate.Location = new System.Drawing.Point(37, 279);
+            this.btnCreate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(340, 39);
+            this.btnCreate.Size = new System.Drawing.Size(340, 31);
             this.btnCreate.TabIndex = 47;
             this.btnCreate.Text = "CREATE";
             this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // cbRole
             // 
             this.cbRole.FormattingEnabled = true;
-            this.cbRole.Location = new System.Drawing.Point(169, 128);
+            this.cbRole.Location = new System.Drawing.Point(169, 102);
+            this.cbRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(208, 28);
+            this.cbRole.Size = new System.Drawing.Size(208, 24);
             this.cbRole.TabIndex = 48;
             // 
             // FrmNewWorker
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(418, 450);
+            this.ClientSize = new System.Drawing.Size(418, 360);
             this.Controls.Add(this.cbRole);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.tbPasswordRepeat);
@@ -197,8 +206,10 @@ namespace ProjectPerunDesktop.Forms
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmNewWorker";
             this.Text = "FrmNewWorker";
+            this.Load += new System.EventHandler(this.FrmNewWorker_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

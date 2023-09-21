@@ -31,6 +31,8 @@ namespace ProjectPerunDesktop.Forms
         {
             this.components = new System.ComponentModel.Container();
             this.grdImport = new System.Windows.Forms.DataGridView();
+            this.transactionTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dSTransactionStorage = new ProjectPerun.DataSets.DSTransactionStorage();
             this.gbBatchInformation = new System.Windows.Forms.GroupBox();
             this.brnGetData = new System.Windows.Forms.Button();
             this.tbDate = new System.Windows.Forms.TextBox();
@@ -41,14 +43,23 @@ namespace ProjectPerunDesktop.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.rbExistingBatch = new System.Windows.Forms.RadioButton();
             this.rbNewBatch = new System.Windows.Forms.RadioButton();
-            this.cbWerehouse = new System.Windows.Forms.ComboBox();
+            this.cbWarehouse = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gbMaterialInformation = new System.Windows.Forms.GroupBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.grdMaterialData = new System.Windows.Forms.DataGridView();
+            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.materialTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timeStampDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.materialDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dSMaterialData = new ProjectPerun.DataSets.DSMaterialData();
             this.tbName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.rbMaterial = new System.Windows.Forms.RadioButton();
+            this.rbOther = new System.Windows.Forms.RadioButton();
             this.rbElement = new System.Windows.Forms.RadioButton();
             this.tbPrice = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -59,17 +70,6 @@ namespace ProjectPerunDesktop.Forms
             this.tbNumber = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnImport = new System.Windows.Forms.Button();
-            this.dSMaterialData = new ProjectPerun.DataSets.DSMaterialData();
-            this.materialDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.materialTypeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timeStampDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.userIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activeDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dSTransactionStorage = new ProjectPerun.DataSets.DSTransactionStorage();
-            this.transactionTableBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,13 +88,13 @@ namespace ProjectPerunDesktop.Forms
             this.batchIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.importBatchNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grdImport)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionTableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSTransactionStorage)).BeginInit();
             this.gbBatchInformation.SuspendLayout();
             this.gbMaterialInformation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdMaterialData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSMaterialData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialDataBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSTransactionStorage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionTableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSMaterialData)).BeginInit();
             this.SuspendLayout();
             // 
             // grdImport
@@ -126,14 +126,23 @@ namespace ProjectPerunDesktop.Forms
             this.grdImport.Location = new System.Drawing.Point(598, 22);
             this.grdImport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.grdImport.Name = "grdImport";
-            this.grdImport.ReadOnly = true;
             this.grdImport.RowHeadersVisible = false;
             this.grdImport.RowHeadersWidth = 51;
             this.grdImport.RowTemplate.Height = 17;
             this.grdImport.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.grdImport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grdImport.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.grdImport.Size = new System.Drawing.Size(551, 408);
             this.grdImport.TabIndex = 0;
+            // 
+            // transactionTableBindingSource
+            // 
+            this.transactionTableBindingSource.DataMember = "TransactionTable";
+            this.transactionTableBindingSource.DataSource = this.dSTransactionStorage;
+            // 
+            // dSTransactionStorage
+            // 
+            this.dSTransactionStorage.DataSetName = "DSTransactionStorage";
+            this.dSTransactionStorage.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gbBatchInformation
             // 
@@ -146,7 +155,7 @@ namespace ProjectPerunDesktop.Forms
             this.gbBatchInformation.Controls.Add(this.label2);
             this.gbBatchInformation.Controls.Add(this.rbExistingBatch);
             this.gbBatchInformation.Controls.Add(this.rbNewBatch);
-            this.gbBatchInformation.Controls.Add(this.cbWerehouse);
+            this.gbBatchInformation.Controls.Add(this.cbWarehouse);
             this.gbBatchInformation.Controls.Add(this.label1);
             this.gbBatchInformation.Location = new System.Drawing.Point(12, 10);
             this.gbBatchInformation.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -173,6 +182,7 @@ namespace ProjectPerunDesktop.Forms
             this.tbDate.Location = new System.Drawing.Point(111, 114);
             this.tbDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbDate.Name = "tbDate";
+            this.tbDate.ReadOnly = true;
             this.tbDate.Size = new System.Drawing.Size(167, 22);
             this.tbDate.TabIndex = 9;
             // 
@@ -249,14 +259,14 @@ namespace ProjectPerunDesktop.Forms
             this.rbNewBatch.UseVisualStyleBackColor = true;
             this.rbNewBatch.Click += new System.EventHandler(this.rbNewBatch_Click);
             // 
-            // cbWerehouse
+            // cbWarehouse
             // 
-            this.cbWerehouse.FormattingEnabled = true;
-            this.cbWerehouse.Location = new System.Drawing.Point(111, 26);
-            this.cbWerehouse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbWerehouse.Name = "cbWerehouse";
-            this.cbWerehouse.Size = new System.Drawing.Size(167, 24);
-            this.cbWerehouse.TabIndex = 1;
+            this.cbWarehouse.FormattingEnabled = true;
+            this.cbWarehouse.Location = new System.Drawing.Point(111, 26);
+            this.cbWarehouse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbWarehouse.Name = "cbWarehouse";
+            this.cbWarehouse.Size = new System.Drawing.Size(167, 24);
+            this.cbWarehouse.TabIndex = 1;
             // 
             // label1
             // 
@@ -274,7 +284,7 @@ namespace ProjectPerunDesktop.Forms
             this.gbMaterialInformation.Controls.Add(this.grdMaterialData);
             this.gbMaterialInformation.Controls.Add(this.tbName);
             this.gbMaterialInformation.Controls.Add(this.label9);
-            this.gbMaterialInformation.Controls.Add(this.rbMaterial);
+            this.gbMaterialInformation.Controls.Add(this.rbOther);
             this.gbMaterialInformation.Controls.Add(this.rbElement);
             this.gbMaterialInformation.Controls.Add(this.tbPrice);
             this.gbMaterialInformation.Controls.Add(this.label8);
@@ -331,141 +341,7 @@ namespace ProjectPerunDesktop.Forms
             this.grdMaterialData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdMaterialData.Size = new System.Drawing.Size(245, 262);
             this.grdMaterialData.TabIndex = 3;
-            // 
-            // tbName
-            // 
-            this.tbName.Location = new System.Drawing.Point(111, 55);
-            this.tbName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(167, 22);
-            this.tbName.TabIndex = 20;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label9.Location = new System.Drawing.Point(6, 58);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(60, 23);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "Name:";
-            // 
-            // rbMaterial
-            // 
-            this.rbMaterial.AutoSize = true;
-            this.rbMaterial.Location = new System.Drawing.Point(139, 186);
-            this.rbMaterial.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rbMaterial.Name = "rbMaterial";
-            this.rbMaterial.Size = new System.Drawing.Size(76, 20);
-            this.rbMaterial.TabIndex = 11;
-            this.rbMaterial.TabStop = true;
-            this.rbMaterial.Text = "Material";
-            this.rbMaterial.UseVisualStyleBackColor = true;
-            // 
-            // rbElement
-            // 
-            this.rbElement.AutoSize = true;
-            this.rbElement.Location = new System.Drawing.Point(21, 186);
-            this.rbElement.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rbElement.Name = "rbElement";
-            this.rbElement.Size = new System.Drawing.Size(77, 20);
-            this.rbElement.TabIndex = 18;
-            this.rbElement.TabStop = true;
-            this.rbElement.Text = "Element";
-            this.rbElement.UseVisualStyleBackColor = true;
-            // 
-            // tbPrice
-            // 
-            this.tbPrice.Location = new System.Drawing.Point(111, 134);
-            this.tbPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbPrice.Name = "tbPrice";
-            this.tbPrice.Size = new System.Drawing.Size(167, 22);
-            this.tbPrice.TabIndex = 17;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label8.Location = new System.Drawing.Point(6, 138);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 23);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Price:";
-            // 
-            // tbQuantity
-            // 
-            this.tbQuantity.Location = new System.Drawing.Point(111, 108);
-            this.tbQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbQuantity.Name = "tbQuantity";
-            this.tbQuantity.Size = new System.Drawing.Size(167, 22);
-            this.tbQuantity.TabIndex = 15;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label5.Location = new System.Drawing.Point(6, 111);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 23);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Quantity:";
-            // 
-            // tbCode
-            // 
-            this.tbCode.Location = new System.Drawing.Point(111, 82);
-            this.tbCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbCode.Name = "tbCode";
-            this.tbCode.Size = new System.Drawing.Size(167, 22);
-            this.tbCode.TabIndex = 13;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label6.Location = new System.Drawing.Point(6, 85);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 23);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Code:";
-            // 
-            // tbNumber
-            // 
-            this.tbNumber.Location = new System.Drawing.Point(111, 29);
-            this.tbNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbNumber.Name = "tbNumber";
-            this.tbNumber.Size = new System.Drawing.Size(167, 22);
-            this.tbNumber.TabIndex = 11;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
-            this.label7.Location = new System.Drawing.Point(6, 32);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 23);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Number:";
-            // 
-            // btnImport
-            // 
-            this.btnImport.Location = new System.Drawing.Point(877, 447);
-            this.btnImport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(272, 35);
-            this.btnImport.TabIndex = 22;
-            this.btnImport.Text = "IMPORT";
-            this.btnImport.UseVisualStyleBackColor = true;
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
-            // 
-            // dSMaterialData
-            // 
-            this.dSMaterialData.DataSetName = "DSMaterialData";
-            this.dSMaterialData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // materialDataBindingSource
-            // 
-            this.materialDataBindingSource.DataMember = "MaterialData";
-            this.materialDataBindingSource.DataSource = this.dSMaterialData;
+            this.grdMaterialData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdMaterialData_CellClick);
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -535,15 +411,144 @@ namespace ProjectPerunDesktop.Forms
             this.activeDataGridViewCheckBoxColumn.Visible = false;
             this.activeDataGridViewCheckBoxColumn.Width = 125;
             // 
-            // dSTransactionStorage
+            // materialDataBindingSource
             // 
-            this.dSTransactionStorage.DataSetName = "DSTransactionStorage";
-            this.dSTransactionStorage.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.materialDataBindingSource.DataMember = "MaterialData";
+            this.materialDataBindingSource.DataSource = this.dSMaterialData;
             // 
-            // transactionTableBindingSource
+            // dSMaterialData
             // 
-            this.transactionTableBindingSource.DataMember = "TransactionTable";
-            this.transactionTableBindingSource.DataSource = this.dSTransactionStorage;
+            this.dSMaterialData.DataSetName = "DSMaterialData";
+            this.dSMaterialData.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // tbName
+            // 
+            this.tbName.Location = new System.Drawing.Point(111, 55);
+            this.tbName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(167, 22);
+            this.tbName.TabIndex = 20;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label9.Location = new System.Drawing.Point(6, 58);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(60, 23);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Name:";
+            // 
+            // rbOther
+            // 
+            this.rbOther.AutoSize = true;
+            this.rbOther.Enabled = false;
+            this.rbOther.Location = new System.Drawing.Point(139, 186);
+            this.rbOther.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rbOther.Name = "rbOther";
+            this.rbOther.Size = new System.Drawing.Size(60, 20);
+            this.rbOther.TabIndex = 11;
+            this.rbOther.TabStop = true;
+            this.rbOther.Text = "Other";
+            this.rbOther.UseVisualStyleBackColor = true;
+            // 
+            // rbElement
+            // 
+            this.rbElement.AutoSize = true;
+            this.rbElement.Enabled = false;
+            this.rbElement.Location = new System.Drawing.Point(21, 186);
+            this.rbElement.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rbElement.Name = "rbElement";
+            this.rbElement.Size = new System.Drawing.Size(77, 20);
+            this.rbElement.TabIndex = 18;
+            this.rbElement.TabStop = true;
+            this.rbElement.Text = "Element";
+            this.rbElement.UseVisualStyleBackColor = true;
+            // 
+            // tbPrice
+            // 
+            this.tbPrice.Location = new System.Drawing.Point(111, 134);
+            this.tbPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbPrice.Name = "tbPrice";
+            this.tbPrice.Size = new System.Drawing.Size(167, 22);
+            this.tbPrice.TabIndex = 17;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label8.Location = new System.Drawing.Point(6, 138);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(51, 23);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Price:";
+            // 
+            // tbQuantity
+            // 
+            this.tbQuantity.Location = new System.Drawing.Point(111, 108);
+            this.tbQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbQuantity.Name = "tbQuantity";
+            this.tbQuantity.Size = new System.Drawing.Size(167, 22);
+            this.tbQuantity.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label5.Location = new System.Drawing.Point(6, 111);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(80, 23);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Quantity:";
+            // 
+            // tbCode
+            // 
+            this.tbCode.Location = new System.Drawing.Point(111, 82);
+            this.tbCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbCode.Name = "tbCode";
+            this.tbCode.ReadOnly = true;
+            this.tbCode.Size = new System.Drawing.Size(167, 22);
+            this.tbCode.TabIndex = 13;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label6.Location = new System.Drawing.Point(6, 85);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 23);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Code:";
+            // 
+            // tbNumber
+            // 
+            this.tbNumber.Location = new System.Drawing.Point(111, 29);
+            this.tbNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbNumber.Name = "tbNumber";
+            this.tbNumber.ReadOnly = true;
+            this.tbNumber.Size = new System.Drawing.Size(167, 22);
+            this.tbNumber.TabIndex = 11;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.label7.Location = new System.Drawing.Point(6, 32);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(77, 23);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Number:";
+            // 
+            // btnImport
+            // 
+            this.btnImport.Location = new System.Drawing.Point(877, 447);
+            this.btnImport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(272, 35);
+            this.btnImport.TabIndex = 22;
+            this.btnImport.Text = "IMPORT";
+            this.btnImport.UseVisualStyleBackColor = true;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // iDDataGridViewTextBoxColumn1
             // 
@@ -551,7 +556,6 @@ namespace ProjectPerunDesktop.Forms
             this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
             this.iDDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
-            this.iDDataGridViewTextBoxColumn1.ReadOnly = true;
             this.iDDataGridViewTextBoxColumn1.Visible = false;
             this.iDDataGridViewTextBoxColumn1.Width = 125;
             // 
@@ -571,7 +575,6 @@ namespace ProjectPerunDesktop.Forms
             this.codeDataGridViewTextBoxColumn1.HeaderText = "Code";
             this.codeDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.codeDataGridViewTextBoxColumn1.Name = "codeDataGridViewTextBoxColumn1";
-            this.codeDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -580,7 +583,6 @@ namespace ProjectPerunDesktop.Forms
             this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
             this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // transactionTypeDataGridViewTextBoxColumn
             // 
@@ -588,7 +590,6 @@ namespace ProjectPerunDesktop.Forms
             this.transactionTypeDataGridViewTextBoxColumn.HeaderText = "TransactionType";
             this.transactionTypeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.transactionTypeDataGridViewTextBoxColumn.Name = "transactionTypeDataGridViewTextBoxColumn";
-            this.transactionTypeDataGridViewTextBoxColumn.ReadOnly = true;
             this.transactionTypeDataGridViewTextBoxColumn.Visible = false;
             this.transactionTypeDataGridViewTextBoxColumn.Width = 125;
             // 
@@ -599,7 +600,6 @@ namespace ProjectPerunDesktop.Forms
             this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
             this.quantityDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
-            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // priceDataGridViewTextBoxColumn
             // 
@@ -608,7 +608,6 @@ namespace ProjectPerunDesktop.Forms
             this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
             this.priceDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // elementIDDataGridViewTextBoxColumn
             // 
@@ -616,7 +615,6 @@ namespace ProjectPerunDesktop.Forms
             this.elementIDDataGridViewTextBoxColumn.HeaderText = "ElementID";
             this.elementIDDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.elementIDDataGridViewTextBoxColumn.Name = "elementIDDataGridViewTextBoxColumn";
-            this.elementIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.elementIDDataGridViewTextBoxColumn.Visible = false;
             this.elementIDDataGridViewTextBoxColumn.Width = 125;
             // 
@@ -626,7 +624,6 @@ namespace ProjectPerunDesktop.Forms
             this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
             this.typeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
-            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
             this.typeDataGridViewTextBoxColumn.Visible = false;
             this.typeDataGridViewTextBoxColumn.Width = 125;
             // 
@@ -636,7 +633,6 @@ namespace ProjectPerunDesktop.Forms
             this.warehouseIDDataGridViewTextBoxColumn.HeaderText = "WarehouseID";
             this.warehouseIDDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.warehouseIDDataGridViewTextBoxColumn.Name = "warehouseIDDataGridViewTextBoxColumn";
-            this.warehouseIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.warehouseIDDataGridViewTextBoxColumn.Visible = false;
             this.warehouseIDDataGridViewTextBoxColumn.Width = 125;
             // 
@@ -646,7 +642,6 @@ namespace ProjectPerunDesktop.Forms
             this.lastChangeDataGridViewTextBoxColumn.HeaderText = "LastChange";
             this.lastChangeDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.lastChangeDataGridViewTextBoxColumn.Name = "lastChangeDataGridViewTextBoxColumn";
-            this.lastChangeDataGridViewTextBoxColumn.ReadOnly = true;
             this.lastChangeDataGridViewTextBoxColumn.Visible = false;
             this.lastChangeDataGridViewTextBoxColumn.Width = 125;
             // 
@@ -656,7 +651,6 @@ namespace ProjectPerunDesktop.Forms
             this.userIDDataGridViewTextBoxColumn1.HeaderText = "UserID";
             this.userIDDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.userIDDataGridViewTextBoxColumn1.Name = "userIDDataGridViewTextBoxColumn1";
-            this.userIDDataGridViewTextBoxColumn1.ReadOnly = true;
             this.userIDDataGridViewTextBoxColumn1.Visible = false;
             this.userIDDataGridViewTextBoxColumn1.Width = 125;
             // 
@@ -666,7 +660,6 @@ namespace ProjectPerunDesktop.Forms
             this.timeStampDataGridViewTextBoxColumn1.HeaderText = "TimeStamp";
             this.timeStampDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.timeStampDataGridViewTextBoxColumn1.Name = "timeStampDataGridViewTextBoxColumn1";
-            this.timeStampDataGridViewTextBoxColumn1.ReadOnly = true;
             this.timeStampDataGridViewTextBoxColumn1.Visible = false;
             this.timeStampDataGridViewTextBoxColumn1.Width = 125;
             // 
@@ -676,7 +669,6 @@ namespace ProjectPerunDesktop.Forms
             this.reservedDataGridViewCheckBoxColumn.HeaderText = "Reserved";
             this.reservedDataGridViewCheckBoxColumn.MinimumWidth = 6;
             this.reservedDataGridViewCheckBoxColumn.Name = "reservedDataGridViewCheckBoxColumn";
-            this.reservedDataGridViewCheckBoxColumn.ReadOnly = true;
             this.reservedDataGridViewCheckBoxColumn.Visible = false;
             this.reservedDataGridViewCheckBoxColumn.Width = 125;
             // 
@@ -686,7 +678,6 @@ namespace ProjectPerunDesktop.Forms
             this.onProjectDataGridViewCheckBoxColumn.HeaderText = "OnProject";
             this.onProjectDataGridViewCheckBoxColumn.MinimumWidth = 6;
             this.onProjectDataGridViewCheckBoxColumn.Name = "onProjectDataGridViewCheckBoxColumn";
-            this.onProjectDataGridViewCheckBoxColumn.ReadOnly = true;
             this.onProjectDataGridViewCheckBoxColumn.Visible = false;
             this.onProjectDataGridViewCheckBoxColumn.Width = 125;
             // 
@@ -696,7 +687,6 @@ namespace ProjectPerunDesktop.Forms
             this.batchIDDataGridViewTextBoxColumn.HeaderText = "BatchID";
             this.batchIDDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.batchIDDataGridViewTextBoxColumn.Name = "batchIDDataGridViewTextBoxColumn";
-            this.batchIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.batchIDDataGridViewTextBoxColumn.Visible = false;
             this.batchIDDataGridViewTextBoxColumn.Width = 125;
             // 
@@ -706,7 +696,6 @@ namespace ProjectPerunDesktop.Forms
             this.importBatchNumberDataGridViewTextBoxColumn.HeaderText = "ImportBatchNumber";
             this.importBatchNumberDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.importBatchNumberDataGridViewTextBoxColumn.Name = "importBatchNumberDataGridViewTextBoxColumn";
-            this.importBatchNumberDataGridViewTextBoxColumn.ReadOnly = true;
             this.importBatchNumberDataGridViewTextBoxColumn.Visible = false;
             this.importBatchNumberDataGridViewTextBoxColumn.Width = 125;
             // 
@@ -725,15 +714,15 @@ namespace ProjectPerunDesktop.Forms
             this.Text = "FrmInsertBatch";
             this.Load += new System.EventHandler(this.FrmInsertBatch_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grdImport)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactionTableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSTransactionStorage)).EndInit();
             this.gbBatchInformation.ResumeLayout(false);
             this.gbBatchInformation.PerformLayout();
             this.gbMaterialInformation.ResumeLayout(false);
             this.gbMaterialInformation.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdMaterialData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSMaterialData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialDataBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSTransactionStorage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transactionTableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSMaterialData)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -745,7 +734,7 @@ namespace ProjectPerunDesktop.Forms
         private Label label1;
         private RadioButton rbExistingBatch;
         private RadioButton rbNewBatch;
-        private ComboBox cbWerehouse;
+        private ComboBox cbWarehouse;
         private Button brnGetData;
         private TextBox tbDate;
         private Label label4;
@@ -762,7 +751,7 @@ namespace ProjectPerunDesktop.Forms
         private Label label7;
         private TextBox tbName;
         private Label label9;
-        private RadioButton rbMaterial;
+        private RadioButton rbOther;
         private RadioButton rbElement;
         private TextBox tbPrice;
         private Label label8;
@@ -778,6 +767,8 @@ namespace ProjectPerunDesktop.Forms
         private DataGridViewCheckBoxColumn activeDataGridViewCheckBoxColumn;
         private BindingSource materialDataBindingSource;
         private ProjectPerun.DataSets.DSMaterialData dSMaterialData;
+        private BindingSource transactionTableBindingSource;
+        private ProjectPerun.DataSets.DSTransactionStorage dSTransactionStorage;
         private DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn numberDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn codeDataGridViewTextBoxColumn1;
@@ -795,7 +786,5 @@ namespace ProjectPerunDesktop.Forms
         private DataGridViewCheckBoxColumn onProjectDataGridViewCheckBoxColumn;
         private DataGridViewTextBoxColumn batchIDDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn importBatchNumberDataGridViewTextBoxColumn;
-        private BindingSource transactionTableBindingSource;
-        private ProjectPerun.DataSets.DSTransactionStorage dSTransactionStorage;
     }
 }

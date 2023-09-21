@@ -34,9 +34,6 @@ namespace ProjectPerunDesktop.Forms
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            //MOZEMO PROMJENITI NEKE INFORMACIJE O PROJEKTU; UPDATE JE SAMO ZA PROMJENU INFORMACIJA O PROJEKTU
-            //ISTO TAKO MOGU NAPRAVT NEKAKAV INSERT I MATERIJALA LOKALNO PRVO PA ONDA CJELOKUPNI UPDATE AL ZA SADA NE
-            //NAJVJEROJATNIJE BI TO ISLO NA NACIN DA POBRISEN SVE RECORDE U TABLICI I DODAN SVE NOVE JEDNOSTAVNIJE JE
             if (dsProjectMaterials == null || dsProjectMaterials.ProjectMaterials.Rows.Count <= 0)
             {
                 MessageBox.Show("Have to load materials before the update!");
@@ -88,9 +85,6 @@ namespace ProjectPerunDesktop.Forms
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //OTVARAN NOVU FORMU KOJA SADRZI LISTU SVIH MATERIJALA KOJI NISU VEC NA PROJEKTU
-            //IZ LISTE OZNACAVAMO MATERIJAL KOJI DODAJEMO I UPISUJEMO KOLICINU
-            //KLIKOM DODAJ DODAJE SE U LOKALNU TABLICU I U BAZU
             FrmNewProjectMaterial frmNewProjectMaterial = new FrmNewProjectMaterial();
             frmNewProjectMaterial.dsSelectedMaterials.ProjectMaterials.Merge(dsProjectMaterials.ProjectMaterials);
             frmNewProjectMaterial.projectID = projectID;

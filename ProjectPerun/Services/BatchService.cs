@@ -64,7 +64,7 @@ namespace ProjectPerun.Services
             return response;
         }
 
-        public static DataTable GetNewBatchID()
+        public static DataTable GetNewBatchNumber()
         {
             RequestParametersModel parameters = new RequestParametersModel(Global.basePath + "batch/batch-number", "GET");
             APIResponseModel response = RequestClass.GetRequest(parameters);

@@ -23,6 +23,14 @@ namespace ProjectPerun.Services
             return (response.Data == null) ? new DataTable() : response.Data;
         }
 
+        public static DataTable GetOneProjectData(int projectID)
+        {
+            RequestParametersModel parameters = new RequestParametersModel(Global.basePath + "projects/" + projectID, "GET", "", "PRO_");
+            APIResponseModel response = RequestClass.GetRequest(parameters);
+
+            return (response.Data == null) ? new DataTable() : response.Data;
+        }
+
         public static DataTable GetProjectMaterials(int projectID)
         {
             RequestParametersModel parameters = new RequestParametersModel(Global.basePath + "projects/project-materials/" + projectID.ToString(), "GET", "", "PMT_");
@@ -78,6 +86,9 @@ namespace ProjectPerun.Services
             return response;
         }
 
-
+        internal static DataTable CheckMaterialAvailability(int projectID)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

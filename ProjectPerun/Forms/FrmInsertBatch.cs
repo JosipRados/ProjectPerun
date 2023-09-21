@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace ProjectPerunDesktop.Forms
         DSWarehouse dsWarehouses = new DSWarehouse();
         DSBatchData dsBatch = new DSBatchData();
         DSTransactionStorage dsImport = new DSTransactionStorage();
+        DSMaterialData dsMaterialData = new DSMaterialData();
         int newBatchNumber;
         int materialNumber;
         public FrmInsertBatch()
@@ -27,17 +29,15 @@ namespace ProjectPerunDesktop.Forms
 
         private void FrmInsertBatch_Load(object sender, EventArgs e)
         {
-            var responseBatch = BatchService.GetNewBatchID();
-            if (responseBatch == null || responseBatch.Rows.Count <= 0)
-            {
-                MessageBox.Show("Couldn't load new batch number, please try to close and opet window again.");
+            grdMaterialData.DataSource = dsMaterialData.MaterialData;
+            cbWarehouse.DataSource = dsWarehouses.Warehouse;
+            cbWarehouse.DisplayMember = "Name";
+            cbWarehouse.ValueMember = "ID";
+            tbDate.Text = DateTime.Now.ToString();
+            grdImport.DataSource = dsImport.TransactionTable;
+
+            if (!FetchNewBatchNumber())
                 return;
-            }
-            else
-            {
-                newBatchNumber = int.Parse(responseBatch.Rows[0]["BatchNumber"].ToString());
-                tbBatchNumber.Text = newBatchNumber.ToString();
-            }
 
             var responseWarehouse = WarehouseService.GetWarehouseData();
             if (responseWarehouse == null || responseWarehouse.Rows.Count <= 0)
@@ -59,45 +59,104 @@ namespace ProjectPerunDesktop.Forms
                 materialNumber = int.Parse(responseMaterialNumber.Rows[0]["MaterialNumber"].ToString());
                 tbNumber.Text = materialNumber.ToString();
             }
+
+            var responseMaterialData = MaterialDataService.GetMaterialData();
+            if(responseMaterialData == null || responseMaterialData.Rows.Count <= 0)
+            {
+                MessageBox.Show("Couldn't load material data, please try to close and opet window again.");
+                return;
+            }
+            else
+                dsMaterialData.MaterialData.Merge(responseMaterialData);
                 
             
         }
 
         private void brnGetData_Click(object sender, EventArgs e)
         {
-            //DOHVAT PODATAKA O BATCHU (DODAT BATCH I WAREHOUSE TABLICE)
-            //KADA KORISTIMO EXISTING BATCH BLOKIRAMO SVA POLJA OSIN BATCH ID-a
-            //KADA SE UPIŠE ID TREBA SE KLIKNUTI GET DATA DA BI SE POPUNILA OSTALA
-            //TIME SPRIJEČAVAMO DA SE UNESE NEKAKAV BATCH ID KOJI NE POSTOJI
-            //KASNIJE GLEDAN DA SU SVA POLJA POPUNJENA KADA ŠALJEMO INAĆE NEVALJA
-            //JEDINO KAKO SE MOGU POPUNITI JE DA KLIKNEMO NEW BATCH I POPUNIMO SAMI
-            //BATCHID CE SE SAM GENERIRATI DOK BROJ PAKETA MORAM UBACITI U CONFIG TABLICU
-            //DODATI BROJ PAKETA U TABLICE ZA MATERIJAL
-            //KADA SE VRATE PODATCI KOJI NEVALJAJU MOZEMO ZATVORITI OVU FORMU I OTVORIT ISTU NOVU
-            //POSTAVIT SAMO DS KOJI POKAZUJE PODATKE U GRIDU I REC DA TI PODATCI NEVALJAJU I TREBA IH ISPRAVIT
-            //NAPISAT NEKU PORUKU GREŠKE DA SE ZNA STA JE KRIVO I ONDA DAT NA ISPRAVAK
-            //MOZDA STAVIT NEKAKAV TEXT BOX KOJI JE ONLY READ I VISIBLE KADA POSTOJI NESTO U VARIJABLI TXTGRESKA
+            int batchNumberID;
+            if(string.IsNullOrWhiteSpace(tbBatchNumber.Text.ToString()) || !int.TryParse(tbBatchNumber.Text.ToString(), out batchNumberID))
+            {
+                MessageBox.Show("Invalid value for Batch Number field!");
+                return;
+            }
+            var batchData = BatchService.GetOneBatchData(batchNumberID);
+            if(batchData == null || batchData.Rows.Count <= 0)
+            {
+                MessageBox.Show("Couldn't load batch, please try fetch data again.");
+                return;
+            }
+
+            dsBatch.BatchTable.Merge(batchData);
+            var batchRow = dsBatch.BatchTable.First();
+            tbBatchNumber.Text = batchRow.BatchNumber.ToString();
+            tbSender.Text = batchRow.Sender.ToString();
+            tbDate.Text = batchRow.TimeStamp.ToString();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            //DODAJU SE PODATCI U LOKALNI DS KOJI SE PRIKAZUJE U DESNOM GRIDU
-            //AKO NEŠTO NE ŠTIMA S PODATCIMA IZBACI SE TXTBOX I NAKON TOGA VRATIMO NAZAD
-            //KADA SE ISPRAVI ONDA NAPUNIMO DS S PODATCIMA I REFRESHAMO GRID
+            int quantity;
+            decimal price;
+            if (string.IsNullOrWhiteSpace(tbQuantity.Text) || string.IsNullOrWhiteSpace(tbPrice.Text))
+            {
+                MessageBox.Show("Quantity and price fields must be filled!");
+                return;
+            }
+            if (!int.TryParse(tbQuantity.Text, out quantity))
+            {
+                MessageBox.Show("Quantity must be number.");
+                return;
+            }
+            if (!decimal.TryParse(tbPrice.Text, out price))
+            {
+                MessageBox.Show("Price must be decimal number.");
+                return;
+            }
+
+            var importRow = dsImport.TransactionTable.NewTransactionTableRow();
+            importRow.Code = tbCode.Text;
+            importRow.Number = materialNumber;
+            importRow.Quantity = quantity;
+            importRow.Price = price;
+            importRow.Name = tbName.Text;
+            importRow.ElementID = dsMaterialData.MaterialData.Where(data => data.Code == tbCode.Text).First().ID;
+            if (rbElement.Checked)
+                importRow.Type = "ELEMENT";
+            else
+                importRow.Type = "OTHER";
+
+            dsImport.TransactionTable.Rows.Add(importRow);
+
+            materialNumber += 1;
+            ClearMaterialFields();
         }
 
         private void btnImport_Click(object sender, EventArgs e)
         {
-            //KADA SE ZAVRŠI S DODAVANJEM PODATAKA U DS RADI SE IMPORT U BAZU
-            //POZIVAJU SE PROCEDURE ZA IMPORT I VRAĆAJU PODATKE KOJI SU KRIVI
-            //NAPRAVIT PROVJERU AKO JE SVE OK ONDA SE VRAĆA NA FORMU SKLADISTE 
-            //AKO NIJE SVE OK OSTAJE OVA FORMA OTVORENA S PODATCIMA KOJI JESU SAMO SE DS MIJENJA
-            //MISLIN DA BI TRIBALO BIT OK NAMISTIT TO AKO VRATIN IDENTICNE PODATKE KOJE SAN POSLA
-
             foreach(var row in dsImport.TransactionTable)
             {
                 row.BatchID = newBatchNumber;
                 row.TransactionType = "IMPORT";
+                row.UserID = Global.userID;
+                row.WarehouseID = long.Parse(cbWarehouse.SelectedValue.ToString());
+            }
+
+            var response = StorageService.InsertStorageData(dsImport);
+
+            if (!response.Success)
+            {
+                dsImport.Clear();
+                dsImport.TransactionTable.Merge(response.Data);
+                MessageBox.Show("Some materials have invalid data, please change information and try again!");
+                FetchNewBatchNumber();
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Import success!");
+                dsImport.Clear();
+                return;
             }
         }
 
@@ -108,6 +167,7 @@ namespace ProjectPerunDesktop.Forms
             tbDate.ReadOnly = false;
             ClearBatchFields();
             tbBatchNumber.Text = newBatchNumber.ToString();
+            dsBatch.Clear();
         }
 
         private void rbExistingBatch_Click(object sender, EventArgs e)
@@ -116,6 +176,7 @@ namespace ProjectPerunDesktop.Forms
             tbSender.ReadOnly = true;
             tbDate.ReadOnly = true;
             ClearBatchFields();
+            dsBatch.Clear();
         }
 
         private void ClearBatchFields()
@@ -125,6 +186,44 @@ namespace ProjectPerunDesktop.Forms
             tbDate.Clear();
         }
 
+        private void ClearMaterialFields()
+        {
+            tbCode.Clear();
+            tbName.Clear();
+            tbNumber.Text = materialNumber.ToString();
+            tbPrice.Clear();
+            tbQuantity.Clear();
+            rbElement.Checked = false;
+            rbOther.Checked = false;
+        }
 
+        private void grdMaterialData_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (grdMaterialData.SelectedRows.Count != 0)
+            {
+                var selectedRow = grdMaterialData.SelectedRows[0];
+                tbCode.Text = selectedRow.Cells[1].Value.ToString();
+                if (selectedRow.Cells[2].Value.ToString() == "ELEMENT")
+                    rbElement.Checked = true;
+                else
+                    rbOther.Checked = true;
+            }
+        }
+
+        private bool FetchNewBatchNumber()
+        {
+            var responseBatch = BatchService.GetNewBatchNumber();
+            if (responseBatch == null || responseBatch.Rows.Count <= 0)
+            {
+                MessageBox.Show("Couldn't load new batch number, please try to close and opet window again.");
+                return false;
+            }
+            else
+            {
+                newBatchNumber = int.Parse(responseBatch.Rows[0]["BatchNumber"].ToString());
+                tbBatchNumber.Text = newBatchNumber.ToString();
+                return true;
+            }
+        }
     }
 }

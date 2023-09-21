@@ -43,9 +43,6 @@ namespace ProjectPerunDesktop.Forms
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            //BRISE MATERIJAL IZ TABLICE
-            //U BAZI GA POSTAVLJA NA NEAKTIVNO
-
             DSMaterialData dsDeleteMaterialData = new DSMaterialData();            
             var row = dsDeleteMaterialData.MaterialData.NewMaterialDataRow();
 
@@ -82,7 +79,7 @@ namespace ProjectPerunDesktop.Forms
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            //PROMJENJENE PODATKE VRACA NA ID I RADI UPDATE NAD PODATCIMA POD TIM IDOM
+            
             if (grdMaterials.SelectedRows.Count != 0)
             {
                 DSMaterialData dsUpdateMaterialData = new DSMaterialData();
@@ -142,9 +139,6 @@ namespace ProjectPerunDesktop.Forms
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            //OTVARA NOVU FORMU ZA UNOS NOVOG MATERIJALA
-            //UNOSE SE SVI PODATCI I VRACA NAZAD OK ILI ERROR TEXT
-            //NAKON SVIH OPERACIJA JE POTREBNO NAPRAVIT UPDATE NAD LOKALNOM EVENTUALNO CACHE-RANON TABLICON
             FrmNewMaterialData frmNewMaterialData = new FrmNewMaterialData();
             var result = frmNewMaterialData.ShowDialog();
 

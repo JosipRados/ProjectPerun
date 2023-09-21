@@ -48,10 +48,7 @@ namespace ProjectPerunDesktop.Forms
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            //UZIMA SE SELEKTIRANI RECORD U TABLICI I OTVARA SE PROZOR ZA IZMJENU PODATAKA
-            //SAVE CHANGES U PROZORU POZIVA UPDATE NAD TIM ELEMENTOM S SVOJIM IDom I BROJEM PAKETA/MATERIJALA
-            
+        {  
             FrmUpdateMaterial frmUpdateMaterial = new FrmUpdateMaterial();
             frmUpdateMaterial.selectedRow = GetSelectedData();
             frmUpdateMaterial.Show();

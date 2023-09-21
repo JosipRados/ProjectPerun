@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DSOrderData" targetNamespace="http://tempuri.org/DSOrderData.xsd" xmlns:mstns="http://tempuri.org/DSOrderData.xsd" xmlns="http://tempuri.org/DSOrderData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DSOrderData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DSOrderData" msprop:Generator_DataSetName="DSOrderData">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="OrderTable" msprop:Generator_RowEvHandlerName="OrderTableRowChangeEventHandler" msprop:Generator_RowDeletedName="OrderTableRowDeleted" msprop:Generator_RowDeletingName="OrderTableRowDeleting" msprop:Generator_RowEvArgName="OrderTableRowChangeEvent" msprop:Generator_TablePropName="OrderTable" msprop:Generator_RowChangedName="OrderTableRowChanged" msprop:Generator_RowChangingName="OrderTableRowChanging" msprop:Generator_TableClassName="OrderTableDataTable" msprop:Generator_RowClassName="OrderTableRow" msprop:Generator_TableVarName="tableOrderTable" msprop:Generator_UserTableName="OrderTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_UserColumnName="ID" type="xs:long" minOccurs="0" />
+              <xs:element name="ProjectID" msprop:Generator_ColumnPropNameInRow="ProjectID" msprop:Generator_ColumnPropNameInTable="ProjectIDColumn" msprop:Generator_ColumnVarNameInTable="columnProjectID" msprop:Generator_UserColumnName="ProjectID" type="xs:long" minOccurs="0" />
+              <xs:element name="OrderedQuantity" msprop:Generator_ColumnPropNameInRow="OrderedQuantity" msprop:Generator_ColumnPropNameInTable="OrderedQuantityColumn" msprop:Generator_ColumnVarNameInTable="columnOrderedQuantity" msprop:Generator_UserColumnName="OrderedQuantity" type="xs:long" minOccurs="0" />
+              <xs:element name="DateOrdered" msprop:Generator_ColumnPropNameInRow="DateOrdered" msprop:Generator_ColumnPropNameInTable="DateOrderedColumn" msprop:Generator_ColumnVarNameInTable="columnDateOrdered" msprop:Generator_UserColumnName="DateOrdered" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DateFinal" msprop:Generator_ColumnPropNameInRow="DateFinal" msprop:Generator_ColumnPropNameInTable="DateFinalColumn" msprop:Generator_ColumnVarNameInTable="columnDateFinal" msprop:Generator_UserColumnName="DateFinal" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Stage" msprop:Generator_ColumnPropNameInRow="Stage" msprop:Generator_ColumnPropNameInTable="StageColumn" msprop:Generator_ColumnVarNameInTable="columnStage" msprop:Generator_UserColumnName="Stage" type="xs:string" minOccurs="0" />
+              <xs:element name="MaterialSeparated" msprop:Generator_ColumnPropNameInRow="MaterialSeparated" msprop:Generator_ColumnPropNameInTable="MaterialSeparatedColumn" msprop:Generator_ColumnVarNameInTable="columnMaterialSeparated" msprop:Generator_UserColumnName="MaterialSeparated" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Finished" msprop:Generator_ColumnPropNameInRow="Finished" msprop:Generator_ColumnPropNameInTable="FinishedColumn" msprop:Generator_ColumnVarNameInTable="columnFinished" msprop:Generator_UserColumnName="Finished" type="xs:boolean" minOccurs="0" />
+              <xs:element name="MaterialPrice" msprop:Generator_ColumnPropNameInRow="MaterialPrice" msprop:Generator_ColumnPropNameInTable="MaterialPriceColumn" msprop:Generator_ColumnVarNameInTable="columnMaterialPrice" msprop:Generator_UserColumnName="MaterialPrice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="WorkerPrice" msprop:Generator_ColumnPropNameInRow="WorkerPrice" msprop:Generator_ColumnPropNameInTable="WorkerPriceColumn" msprop:Generator_ColumnVarNameInTable="columnWorkerPrice" msprop:Generator_UserColumnName="WorkerPrice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ProductionTime" msprop:Generator_ColumnPropNameInRow="ProductionTime" msprop:Generator_ColumnPropNameInTable="ProductionTimeColumn" msprop:Generator_ColumnVarNameInTable="columnProductionTime" msprop:Generator_UserColumnName="ProductionTime" type="xs:duration" minOccurs="0" />
+              <xs:element name="FinishingTime" msprop:Generator_ColumnPropNameInRow="FinishingTime" msprop:Generator_ColumnPropNameInTable="FinishingTimeColumn" msprop:Generator_ColumnVarNameInTable="columnFinishingTime" msprop:Generator_UserColumnName="FinishingTime" type="xs:duration" minOccurs="0" />
+              <xs:element name="TimeStamp" msprop:Generator_ColumnPropNameInRow="TimeStamp" msprop:Generator_ColumnPropNameInTable="TimeStampColumn" msprop:Generator_ColumnVarNameInTable="columnTimeStamp" msprop:Generator_UserColumnName="TimeStamp" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="UserID" msprop:Generator_ColumnPropNameInRow="UserID" msprop:Generator_ColumnPropNameInTable="UserIDColumn" msprop:Generator_ColumnVarNameInTable="columnUserID" msprop:Generator_UserColumnName="UserID" type="xs:long" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

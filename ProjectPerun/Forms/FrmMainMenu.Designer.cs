@@ -40,8 +40,8 @@ namespace ProjectPerunDesktop.Forms
             // lbMainMenu
             // 
             this.lbMainMenu.AutoSize = true;
-            this.lbMainMenu.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbMainMenu.Location = new System.Drawing.Point(287, 23);
+            this.lbMainMenu.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.lbMainMenu.Location = new System.Drawing.Point(287, 18);
             this.lbMainMenu.Name = "lbMainMenu";
             this.lbMainMenu.Size = new System.Drawing.Size(227, 46);
             this.lbMainMenu.TabIndex = 0;
@@ -49,10 +49,11 @@ namespace ProjectPerunDesktop.Forms
             // 
             // btnStorage
             // 
-            this.btnStorage.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnStorage.Location = new System.Drawing.Point(47, 102);
+            this.btnStorage.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnStorage.Location = new System.Drawing.Point(47, 82);
+            this.btnStorage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStorage.Name = "btnStorage";
-            this.btnStorage.Size = new System.Drawing.Size(306, 99);
+            this.btnStorage.Size = new System.Drawing.Size(306, 79);
             this.btnStorage.TabIndex = 1;
             this.btnStorage.Text = "STORAGE";
             this.btnStorage.UseVisualStyleBackColor = true;
@@ -60,10 +61,11 @@ namespace ProjectPerunDesktop.Forms
             // 
             // btnProduction
             // 
-            this.btnProduction.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnProduction.Location = new System.Drawing.Point(433, 102);
+            this.btnProduction.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnProduction.Location = new System.Drawing.Point(433, 82);
+            this.btnProduction.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnProduction.Name = "btnProduction";
-            this.btnProduction.Size = new System.Drawing.Size(306, 99);
+            this.btnProduction.Size = new System.Drawing.Size(306, 79);
             this.btnProduction.TabIndex = 2;
             this.btnProduction.Text = "PRODUCTION";
             this.btnProduction.UseVisualStyleBackColor = true;
@@ -71,10 +73,11 @@ namespace ProjectPerunDesktop.Forms
             // 
             // btnManagment
             // 
-            this.btnManagment.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnManagment.Location = new System.Drawing.Point(47, 232);
+            this.btnManagment.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnManagment.Location = new System.Drawing.Point(47, 186);
+            this.btnManagment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnManagment.Name = "btnManagment";
-            this.btnManagment.Size = new System.Drawing.Size(306, 99);
+            this.btnManagment.Size = new System.Drawing.Size(306, 79);
             this.btnManagment.TabIndex = 4;
             this.btnManagment.Text = "MANAGMENT";
             this.btnManagment.UseVisualStyleBackColor = true;
@@ -82,26 +85,30 @@ namespace ProjectPerunDesktop.Forms
             // 
             // btnConfiguration
             // 
-            this.btnConfiguration.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnConfiguration.Location = new System.Drawing.Point(433, 232);
+            this.btnConfiguration.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.btnConfiguration.Location = new System.Drawing.Point(433, 186);
+            this.btnConfiguration.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConfiguration.Name = "btnConfiguration";
-            this.btnConfiguration.Size = new System.Drawing.Size(306, 99);
+            this.btnConfiguration.Size = new System.Drawing.Size(306, 79);
             this.btnConfiguration.TabIndex = 5;
             this.btnConfiguration.Text = "CONFIGURATION";
             this.btnConfiguration.UseVisualStyleBackColor = true;
+            this.btnConfiguration.Visible = false;
             // 
             // FrmMainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 388);
+            this.ClientSize = new System.Drawing.Size(800, 310);
             this.Controls.Add(this.btnConfiguration);
             this.Controls.Add(this.btnManagment);
             this.Controls.Add(this.btnProduction);
             this.Controls.Add(this.btnStorage);
             this.Controls.Add(this.lbMainMenu);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmMainMenu";
             this.Text = "FrmMainMenu";
+            this.Load += new System.EventHandler(this.FrmMainMenu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
