@@ -31,10 +31,13 @@ namespace ProjectPerun.APICalls
                     result = streamReader.ReadToEnd();
                 }
 
-                if (parameters.Substring != "")
+                return (parameters.Substring != "") ? JsonConvert.DeserializeObject<APIResponseModel>(result.Replace(parameters.Substring, ""))
+                                                    : JsonConvert.DeserializeObject<APIResponseModel>(result);
+
+                /*if (parameters.Substring != "")
                     return JsonConvert.DeserializeObject<APIResponseModel>(result.Replace(parameters.Substring, ""));
                 else
-                    return JsonConvert.DeserializeObject<APIResponseModel>(result);
+                    return JsonConvert.DeserializeObject<APIResponseModel>(result); */
             }
             catch (Exception ex)
             {
@@ -61,11 +64,13 @@ namespace ProjectPerun.APICalls
                 {
                     result = streamReader.ReadToEnd();
                 }
+                return (parameters.Substring != "") ? JsonConvert.DeserializeObject<APIResponseModel>(result.Replace(parameters.Substring, ""))
+                                                    : JsonConvert.DeserializeObject<APIResponseModel>(result);
 
-                if(parameters.Substring != "")
+                /*if (parameters.Substring != "")
                     return JsonConvert.DeserializeObject<APIResponseModel>(result.Replace(parameters.Substring,""));
                 else
-                    return JsonConvert.DeserializeObject<APIResponseModel>(result);
+                    return JsonConvert.DeserializeObject<APIResponseModel>(result); */
             }
             catch (Exception ex)
             {

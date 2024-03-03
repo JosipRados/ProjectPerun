@@ -113,6 +113,7 @@ namespace ProjectPerunDesktop.Forms
             this.grdMaterials.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdMaterials.Size = new System.Drawing.Size(606, 454);
             this.grdMaterials.TabIndex = 3;
+            this.grdMaterials.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdMaterials_CellContentDoubleClick);
             this.grdMaterials.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdMaterials_CellContentDoubleClick);
             this.grdMaterials.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdMaterials_CellContentDoubleClick);
             // 

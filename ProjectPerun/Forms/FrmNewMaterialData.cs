@@ -71,6 +71,7 @@ namespace ProjectPerunDesktop.Forms
             }
             else
             {
+                newMaterialData.MaterialData.FirstOrDefault().ID = long.Parse(response.Data.Rows[0][0].ToString());
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
